@@ -22,6 +22,7 @@ npm i <b>@vueuse/integrations</b>
   - [`useJwt`](https://vueuse.org/integrations/useJwt/) — wrapper for [`jwt-decode`](https://github.com/auth0/jwt-decode)
   - [`useNProgress`](https://vueuse.org/integrations/useNProgress/) — reactive wrapper for [`nprogress`](https://github.com/rstacruz/nprogress)
   - [`useQRCode`](https://vueuse.org/integrations/useQRCode/) — wrapper for [`qrcode`](https://github.com/soldair/node-qrcode)
+  - [`useTinyColor2`](https://vueuse.org/integrations/useTinyColor2/) — tODO:
 
 
 <!--FUNCTIONS_LIST_ENDS-->

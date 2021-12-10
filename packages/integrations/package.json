@@ -66,6 +66,11 @@
       "import": "./useQRCode.mjs",
       "require": "./useQRCode.cjs",
       "types": "./useQRCode.d.ts"
+    },
+    "./useTinyColor2": {
+      "import": "./useTinyColor2.mjs",
+      "require": "./useTinyColor2.cjs",
+      "types": "./useTinyColor2.d.ts"
     }
   },
   "main": "./index.cjs",
@@ -96,9 +101,11 @@
   "devDependencies": {
     "@types/nprogress": "^0.2.0",
     "@types/qrcode": "^1.4.1",
+    "@types/tinycolor2": "^1.4.3",
     "@types/universal-cookie": "^3.0.0",
     "nprogress": "^0.2.0",
     "qrcode": "^1.4.4",
+    "tinycolor2": "^1.4.2",
     "universal-cookie": "^4.0.4"
   }
 }

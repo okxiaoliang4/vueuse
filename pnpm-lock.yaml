@@ -162,6 +162,7 @@ importers:
     specifiers:
       '@types/nprogress': ^0.2.0
       '@types/qrcode': ^1.4.1
+      '@types/tinycolor2': ^1.4.3
       '@types/universal-cookie': ^3.0.0
       '@vueuse/core': workspace:*
       '@vueuse/shared': workspace:*
@@ -172,6 +173,7 @@ importers:
       jwt-decode: ^3.1.2
       nprogress: ^0.2.0
       qrcode: ^1.4.4
+      tinycolor2: ^1.4.2
       universal-cookie: ^4.0.4
       vue-demi: 0.12.1
     dependencies:
@@ -190,7 +192,9 @@ importers:
     devDependencies:
       '@types/nprogress': 0.2.0
       '@types/qrcode': 1.4.1
+      '@types/tinycolor2': 1.4.3
       '@types/universal-cookie': 3.0.0
+      tinycolor2: 1.4.2
 
   packages/nuxt:
     specifiers:
@@ -2584,6 +2588,10 @@ packages:
 
   /@types/throttle-debounce/2.1.0:
     resolution: {integrity: sha512-5eQEtSCoESnh2FsiLTxE121IiE60hnMqcb435fShf4bpLRjEu1Eoekht23y6zXS9Ts3l+Szu3TARnTsA0GkOkQ==}
+    dev: true
+
+  /@types/tinycolor2/1.4.3:
+    resolution: {integrity: sha512-Kf1w9NE5HEgGxCRyIcRXR/ZYtDv0V8FVPtYHwLxl0O+maGX0erE77pQlD0gpP+/KByMZ87mOA79SjifhSB3PjQ==}
     dev: true
 
   /@types/trusted-types/2.0.2:
@@ -8161,6 +8169,11 @@ packages:
 
   /through/2.3.8:
     resolution: {integrity: sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=}
+    dev: true
+
+  /tinycolor2/1.4.2:
+    resolution: {integrity: sha512-vJhccZPs965sV/L2sU4oRQVAos0pQXwsvTLkWYdqJ+a8Q5kPFzJTuOFwy7UniPli44NKQGAglksjvOcpo95aZA==}
+    requiresBuild: true
     dev: true
 
   /tmpl/1.0.5:
