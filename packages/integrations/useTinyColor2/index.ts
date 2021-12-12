@@ -14,7 +14,9 @@ export function useTinyColor2(input: MaybeRef<ColorInput>) {
   const hsv = computed(() => tinycolorRef.value.toHsvString())
   const hex = computed(() => `#${tinycolorRef.value.toHex()}`)
   const hex8 = computed(() => `#${tinycolorRef.value.toHex8()}`)
+
   const isLight = computed(() => tinycolorRef.value.isLight())
+  const isDark = computed(() => tinycolorRef.value.isDark())
 
   watch(() => unref(input), (newInput) => {
     tinycolorRef.value = tinycolor(newInput)
@@ -29,5 +31,6 @@ export function useTinyColor2(input: MaybeRef<ColorInput>) {
     hex,
     hex8,
     isLight,
+    isDark,
   }
 }
