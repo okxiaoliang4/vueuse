@@ -1,33 +1,50 @@
 import type { ColorInput } from 'tinycolor2'
 
-import { MaybeRef } from '@vueuse/shared'
+import { clamp, MaybeRef } from '@vueuse/shared'
 import { computed, ref, unref, watch } from 'vue-demi'
 import tinycolor from 'tinycolor2'
 
 export function useTinyColor2(input: MaybeRef<ColorInput>) {
-  const tinycolorRef = ref(tinycolor(unref(input)))
+  const instance = ref(tinycolor(unref(input)))
 
-  const rgb = computed(() => tinycolorRef.value.toRgbString())
-  const rgba = computed(() => tinycolorRef.value.toRgbString())
-  const hsl = computed(() => tinycolorRef.value.toHslString())
-  const hsla = computed(() => tinycolorRef.value.toHslString())
-  const hsv = computed(() => tinycolorRef.value.toHsvString())
-  const hex = computed(() => `#${tinycolorRef.value.toHex()}`)
-  const hex8 = computed(() => `#${tinycolorRef.value.toHex8()}`)
-  const isLight = computed(() => tinycolorRef.value.isLight())
+  const rgb = computed(() => instance.value.toRgbString())
+  const hsl = computed(() => instance.value.toHslString())
+  const hsv = computed(() => instance.value.toHsvString())
+  const hex = computed(() => instance.value.toHexString())
+
+  const isLight = computed(() => instance.value.isLight())
+  const isDark = computed(() => instance.value.isDark())
+
+  const greyscale = computed(() => instance.value.clone().greyscale().toString())
+  const complement = computed(() => instance.value.clone().complement().toString())
+
+  const darken = computed(() => (darken: number) => instance.value.clone().darken(clamp(darken, 0, 100)).toString())
+  const lighten = computed(() => (lighten: number) => instance.value.clone().lighten(clamp(lighten, 0, 100)).toString())
+
+  const desaturate = computed(() => (desaturate: number) => instance.value.clone().desaturate(clamp(desaturate, 0, 100)))
+  const saturate = computed(() => (saturate: number) => instance.value.clone().saturate(clamp(saturate, 0, 100)))
 
   watch(() => unref(input), (newInput) => {
-    tinycolorRef.value = tinycolor(newInput)
+    instance.value = tinycolor(newInput)
   })
 
   return {
+    instance,
     rgb,
-    rgba,
     hsl,
-    hsla,
     hsv,
     hex,
-    hex8,
+
     isLight,
+    isDark,
+
+    greyscale,
+    complement,
+
+    darken,
+    lighten,
+
+    desaturate,
+    saturate,
   }
 }
