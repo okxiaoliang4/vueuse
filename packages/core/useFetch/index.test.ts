@@ -1,5 +1,5 @@
 import { ref } from 'vue-demi'
-import { until } from '@vueuse/shared'
+import { rand, until } from '@vueuse/shared'
 import { retry } from '../../.test'
 import '../../.test/mockServer'
 import { createFetch, useFetch } from '.'
@@ -133,7 +133,7 @@ describe('useFetch', () => {
   })
 
   test('should run the afterFetch function', async() => {
-    const { data } = useFetch(jsonUrl, {
+    const { data } = useFetch(`https://example.com?status=${rand(200, 299)}&json`, {
       afterFetch(ctx) {
         ctx.data.title = 'Hunter x Hunter'
         return ctx
@@ -142,6 +142,19 @@ describe('useFetch', () => {
 
     await retry(() => {
       expect(data.value).toEqual(expect.objectContaining({ title: 'Hunter x Hunter' }))
+    })
+  })
+
+  test('should not run the afterFetch function', async() => {
+    const { data } = useFetch(`${jsonUrl}&status=300`, {
+      afterFetch(ctx) {
+        ctx.data.title = 'Hunter x Hunter'
+        return ctx
+      },
+    }).json()
+
+    await retry(() => {
+      expect(data.value).toEqual(jsonMessage)
     })
   })
 
