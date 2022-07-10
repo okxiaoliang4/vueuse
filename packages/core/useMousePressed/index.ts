@@ -6,7 +6,7 @@ import type { MouseSourceType } from '../useMouse'
 import type { ConfigurableWindow } from '../_configurable'
 import { defaultWindow } from '../_configurable'
 
-export interface MousePressedOptions extends ConfigurableWindow {
+export interface UseMousePressedOptions extends ConfigurableWindow {
   /**
    * Listen to `touchstart` `touchend` events
    *
@@ -40,7 +40,7 @@ export interface MousePressedOptions extends ConfigurableWindow {
  * @see https://vueuse.org/useMousePressed
  * @param options
  */
-export function useMousePressed(options: MousePressedOptions = {}) {
+export function useMousePressed(options: UseMousePressedOptions = {}) {
   const {
     touch = true,
     drag = true,

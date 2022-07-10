@@ -1,9 +1,9 @@
 import { defineComponent, h, reactive, ref } from 'vue-demi'
-import type { MousePressedOptions } from '@vueuse/core'
+import type { UseMousePressedOptions } from '@vueuse/core'
 import { useMousePressed } from '@vueuse/core'
 import type { RenderableComponent } from '../types'
 
-export const UseMousePressed = defineComponent<Omit<MousePressedOptions, 'target'> & RenderableComponent>({
+export const UseMousePressed = defineComponent<Omit<UseMousePressedOptions, 'target'> & RenderableComponent>({
   name: 'UseMousePressed',
   props: ['touch', 'initialValue', 'as'] as unknown as undefined,
   setup(props, { slots }) {
