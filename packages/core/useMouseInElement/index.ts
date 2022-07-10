@@ -5,7 +5,7 @@ import type { UseMouseOptions } from '../useMouse'
 import { useMouse } from '../useMouse'
 import { defaultWindow } from '../_configurable'
 
-export interface MouseInElementOptions extends UseMouseOptions {
+export interface UseMouseInElementOptions extends UseMouseOptions {
   handleOutside?: boolean
 }
 
@@ -18,7 +18,7 @@ export interface MouseInElementOptions extends UseMouseOptions {
  */
 export function useMouseInElement(
   target?: MaybeElementRef,
-  options: MouseInElementOptions = {},
+  options: UseMouseInElementOptions = {},
 ) {
   const {
     handleOutside = true,
